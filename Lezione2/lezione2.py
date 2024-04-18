@@ -7,16 +7,16 @@ print ("Salve!")
 # that person. Your message should be simple, such as, “Hello Eric, 
 # would you like to learn some Python today?”
 
-name = "Eric"
-print(f"Hello {name}, would you like to learn some Python today?")
+person = "Eric"
+print(f"Hello {person}, would you like to learn some Python today?")
 
 
 # 2-4 Use a variable to represent a person’s name, and then print 
 # that person’s name in lowercase, uppercase, and title case.
 
-print(f"Hello {name.lower()}")
-print(f"Hello {name.upper()}")
-print(f"Hello {name.title()}")
+print(f"Hello {person.lower()}")
+print(f"Hello {person.upper()}")
+print(f"Hello {person.title()}")
 
 
 # 2-5. Famous Quote: Find a quote from a famous person you admire. 
@@ -50,19 +50,19 @@ print(f"{filename.removesuffix('.txt')}")
 # 3-1. Store the names of a few of your friends in a list called names. 
 # Print each person’s name by accessing each element in the list, one at a time.
 
-names = ["Alfonso", "Riccardo", "Edwin"]
-print(names[0])
-print(names[1])
-print(names[2])
+friends = ["Alfonso", "Riccardo", "Edwin"]
+print(friends[0])
+print(friends[1])
+print(friends[2])
 
 
 # 3-2. Start with the list you used in Exercise 3-1, but instead of just printing
 #  each person’s name, print a message to them. The text of each message should be 
 # the same, but each message should be personalized with the person’s name.
 
-print(f"Hi {names[0]} how are you?")
-print(f"Hi {names[1]} how are you?")
-print(f"Hi {names[2]} how are you?")
+print(f"Hi {friends[0]} how are you?")
+print(f"Hi {friends[1]} how are you?")
+print(f"Hi {friends[2]} how are you?")
 
 
 # 3-3. Think of your favorite mode of transportation, such as a motorcycle or a car, 
@@ -195,3 +195,58 @@ cars.reverse()
 print(cars)
 cars.sort()
 print(cars)
+
+
+# 6-1. Use a dictionary to store information about a person you know. Store their first name, 
+# last name, age, and the city in which they live. You should have keys such as first_name, 
+# last_name, age, and city. Print each piece of information stored in your dictionary.
+
+names = ["Enzo", "Ferruccio", "Tony"]
+last_name = {"Enzo": "Ferrari", "Ferruccio": "Lamborghini", "Tony": "Effe"}
+age = {"Enzo": 30, "Ferruccio": 35, "Tony": 40}
+city = {"Enzo": "Maranello", "Ferruccio": "Bologna", "Tony": "Roma"}
+print(f" Name: {names[0]}\n Last Name: {last_name['Enzo']}\n Age: {age['Enzo']}\n City: {city['Enzo']}\n ///////////")
+print(f" Name: {names[1]}\n Last Name: {last_name['Ferruccio']}\n Age: {age['Ferruccio']}\n City: {city['Ferruccio']}\n ///////////")
+print(f" Name: {names[2]}\n Last Name: {last_name['Tony']}\n Age: {age['Tony']}\n City: {city['Tony']}")
+
+
+# 6-2. Use a dictionary to store people’s favorite numbers. Think of five names, 
+# and use them as keys in your dictionary. Think of a favorite number for each person, and store each 
+# as a value in your dictionary. Print each person’s name and their favorite number. For even more fun, 
+# poll a few friends and get some actual data for your program.
+
+names = ["Dante", "Jerry", "Rick", "Edwin", "Mia"]
+fav_numbers = {"Dante": 3, "Jerry": 10, "Rick": 11, "Edwin": 5, "Mia": 17}
+print(f"{names[0]}'s favorite number is {fav_numbers['Dante']}")
+print(f"{names[1]}'s favorite number is {fav_numbers['Jerry']}")
+print(f"{names[2]}'s favorite number is {fav_numbers['Rick']}")
+print(f"{names[3]}'s favorite number is {fav_numbers['Edwin']}")
+print(f"{names[4]}'s favorite number is {fav_numbers['Mia']}")
+
+
+# 6-3. A Python dictionary can be used to model an actual dictionary. 
+# However, to avoid confusion, let’s call it a glossary.
+# • Think of five programming words you’ve learned about in the previous chapters. 
+# Use these words as the keys in your glossary, and store their meanings as values.
+# • Print each word and its meaning as neatly formatted output. You might print the word 
+# followed by a colon and then its meaning, or print the word on one line and then print 
+# its meaning indented on a second line. Use the newline character (\n) to insert a blank 
+# line between each word-meaning pair in your output.
+
+
+glossary = ["for", "while", "remove", "print", "append"]
+meaning = {"for": "loop that iterates through code in its body for a set amount of times until a condition is met",
+            "while": "controls flow statement which repeatedly executes a block of code until the condition is satisfied", 
+            "remove": "remove an item from a list by its value and not by its index number", 
+            "print": "print the specified message to the screen", 
+            "append": "used to add a single item to certain collection types"}
+print(f"{glossary[0]} is a  {meaning['for']}\n")
+print(f"{glossary[1]} {meaning['while']}\n")
+print(f"{glossary[2]} is used to {meaning['remove']}\n")
+print(f"{glossary[3]} is used to {meaning['print']}\n")
+print(f"{glossary[4]} is {meaning['append']}")
+
+
+# 6-7. Start with the program you wrote for Exercise 6-1. Make two new dictionaries representing 
+# different people, and store all three dictionaries in a list called people. Loop through your 
+# list of people. As you loop through the list, print everything you know about each person.
