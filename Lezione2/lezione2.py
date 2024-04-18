@@ -13,4 +13,6 @@ print(f"Hello {name}, would you like to learn some Python today?")
 # 2-4 Use a variable to represent a person’s name, and then print 
 # that person’s name in lowercase, uppercase, and title case.
 
-print(f"name.uppercase()")
+print(f"Ciao {name.lower()}")
+print(f"Ciao {name.upper()}")
+print(f"Ciao {name.title()}")
