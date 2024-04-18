@@ -107,7 +107,7 @@ print(f"Hi {guest_list[2]}, I would like to invite you to dinner tonight.")
 
 guest_list = ["Dante", "Kratos", "Rick", "Jordi"]
 print(f"Hello everyone, I just found a bigger table so there will be 3 more people :) ")
-guest_list.insert("Gianni")
+guest_list.insert(0,"Gianni")
 guest_list.insert(3, "Stan Lee")
 guest_list.append("Johnny")
 print(f"Hi {guest_list[0]}, I would like to invite you to dinner tonight.")
@@ -119,5 +119,79 @@ print(f"Hi {guest_list[5]}, I would like to invite you to dinner tonight.")
 print(f"Hi {guest_list[6]}, I would like to invite you to dinner tonight.")
 
 
+# 3-7. You just found out that your new dinner table won’t arrive in time for the dinner, and now you have space for only two guests.
+# • Start with your program from Exercise 3-6. Add a new line that prints a message saying that you can invite only two people for dinner.
+# • Use pop() to remove guests from your list one at a time until only two names remain in your list. Each time you pop a name from your list, print a message to that person letting them know you’re sorry you can’t invite them to dinner.
+# • Print a message to each of the two people still on your list, letting them know they’re still invited.
+# • Use del to remove the last two names from your list, so you have an empty list. Print your list to make sure you actually have an empty list at the end of your program.
+
+guest_list = ["Gianni", "Dante", "Kratos", "Stan Lee", "Rick", "Jordi", "Johnny"]
+print(f"Hello everyone, I'm really sorry but the only avaivable table is for only 2 person :( ")
+print(f"I'm sorry {guest_list.pop(0)} but I can't invite you to dinner")
+print(f"I'm sorry {guest_list.pop(1)} but I can't invite you to dinner")
+print(f"I'm sorry {guest_list.pop(1)} but I can't invite you to dinner")
+print(f"I'm sorry {guest_list.pop(3)} but I can't invite you to dinner")
+print(f"I'm sorry {guest_list.pop(2)} but I can't invite you to dinner")
+print(f"Hi {guest_list[0]}, you are still invited to dinner tonight.")
+print(f"Hi {guest_list[1]}, you are still invited to dinner tonight.")
 
 
+# 3-8. Think of at least five places in the world you’d like to visit.
+# • Store the locations in a list. Make sure the list is not in alphabetical order.
+# • Print your list in its original order. Don’t worry about printing the list neatly; just print it as a raw Python list.
+# • Use sort() to print your list in alphabetical order without modifying the actual list.
+# • Show that your list is still in its original order by printing it.
+# • Use sort() to print your list in reverse-alphabetical order without changing the order of the original list.
+# • Show that your list is still in its original order by printing it again.
+# • Use reverse()  to change the order of your list. Print the list to show that its order has changed.
+# • Use reverse() to change the order of your list again. Print the list to show it’s back to its original order.
+# • Use sort() to change your list so it’s stored in alphabetical order. Print the list to show that its order has been changed.
+# • Use sort() to change your list so it’s stored in reverse-alphabetical order.
+# Print the list to show that its order has changed.
+
+places = ["Los Angeles ", "New York ", "Paris ", "Bucarest ", "Warsaw "]
+print(places)
+places.sort()
+print(places)
+places.sort(reverse=True)
+print(places)
+places.reverse()
+print(places)
+places.reverse()
+print(places)
+places.sort()
+print(places)
+places.sort(reverse=True)
+print(places)
+
+
+# 3-9. Working with one of the programs from Exercises 3, use len() 
+# to print a message indicating the number of people you’re inviting to dinner.
+# I took it from ex 3-5
+
+guest_list = ["Dante", "Kratos", "Cicciogamer89"]
+print(f"There will be {len(guest_list)} guest at dinner tonight.")
+
+
+# 3-10. Think of things you could store in a list. For example, you could make a list 
+# of mountains, rivers, countries, cities, languages, or anything else you’d like. 
+# Write a program that creates a list containing these items and then uses each function introduced in this chapter at least once.
+
+cars = ["BMW", "Audi", "Mercedes", "Bugatti", "Ferrari"]
+print(cars)
+print(f"{cars[0].lower()}")
+cars.insert(0,"Porsche")
+print(cars)
+cars.append("Lamborghini")
+print(cars)
+cars.remove("Audi")
+print(cars)
+cars.sort()
+print(cars)
+cars.sort(reverse=True)
+print(cars)
+cars.sort()
+cars.reverse()
+print(cars)
+cars.sort()
+print(cars)
