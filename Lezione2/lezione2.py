@@ -201,13 +201,12 @@ print(cars)
 # last name, age, and the city in which they live. You should have keys such as first_name, 
 # last_name, age, and city. Print each piece of information stored in your dictionary.
 
-names = ["Enzo", "Ferruccio", "Tony"]
-last_name = {"Enzo": "Ferrari", "Ferruccio": "Lamborghini", "Tony": "Effe"}
-age = {"Enzo": 30, "Ferruccio": 35, "Tony": 40}
-city = {"Enzo": "Maranello", "Ferruccio": "Bologna", "Tony": "Roma"}
-print(f" Name: {names[0]}\n Last Name: {last_name['Enzo']}\n Age: {age['Enzo']}\n City: {city['Enzo']}\n ///////////")
-print(f" Name: {names[1]}\n Last Name: {last_name['Ferruccio']}\n Age: {age['Ferruccio']}\n City: {city['Ferruccio']}\n ///////////")
-print(f" Name: {names[2]}\n Last Name: {last_name['Tony']}\n Age: {age['Tony']}\n City: {city['Tony']}")
+person1 = {"first_name": "Enzo", "last_name": "Ferrari", "age": 30, "city": "Maranello"}
+person2 = {"first_name": "Ferruccio", "last_name": "Lamborghini", "age": 35, "city": "Bologna"}
+person3 = {"first_name": "Tony", "last_name": "Effe", "age": 40, "city": "Roma"}
+persons = [person1, person2, person3]
+for person in persons:
+    print(f" Name: {person['first_name']}\n Last Name: {person['last_name']}\n Age: {person['age']}\n City: {person['city']}\n//////////")
 
 
 # 6-2. Use a dictionary to store people’s favorite numbers. Think of five names, 
@@ -215,13 +214,9 @@ print(f" Name: {names[2]}\n Last Name: {last_name['Tony']}\n Age: {age['Tony']}\
 # as a value in your dictionary. Print each person’s name and their favorite number. For even more fun, 
 # poll a few friends and get some actual data for your program.
 
-names = ["Dante", "Jerry", "Rick", "Edwin", "Mia"]
-fav_numbers = {"Dante": 3, "Jerry": 10, "Rick": 11, "Edwin": 5, "Mia": 17}
-print(f"{names[0]}'s favorite number is {fav_numbers['Dante']}")
-print(f"{names[1]}'s favorite number is {fav_numbers['Jerry']}")
-print(f"{names[2]}'s favorite number is {fav_numbers['Rick']}")
-print(f"{names[3]}'s favorite number is {fav_numbers['Edwin']}")
-print(f"{names[4]}'s favorite number is {fav_numbers['Mia']}")
+persons = {"name": "Dante", "fav_number": 3}, {"name": "Jerry", "fav_number": 10}, {"name": "Rick", "fav_number": 11}, {"name": "Edwin", "fav_number": 5}, {"name": "Mia", "fav_number": 17}
+for person in persons:
+    print(f"{person['name']}'s favorite number is {person['fav_number']}\n//////////")
 
 
 # 6-3. A Python dictionary can be used to model an actual dictionary. 
@@ -233,20 +228,42 @@ print(f"{names[4]}'s favorite number is {fav_numbers['Mia']}")
 # its meaning indented on a second line. Use the newline character (\n) to insert a blank 
 # line between each word-meaning pair in your output.
 
-
-glossary = ["for", "while", "remove", "print", "append"]
-meaning = {"for": "loop that iterates through code in its body for a set amount of times until a condition is met",
-            "while": "controls flow statement which repeatedly executes a block of code until the condition is satisfied", 
-            "remove": "remove an item from a list by its value and not by its index number", 
-            "print": "print the specified message to the screen", 
-            "append": "used to add a single item to certain collection types"}
-print(f"{glossary[0]} is a  {meaning['for']}\n")
-print(f"{glossary[1]} {meaning['while']}\n")
-print(f"{glossary[2]} is used to {meaning['remove']}\n")
-print(f"{glossary[3]} is used to {meaning['print']}\n")
-print(f"{glossary[4]} is {meaning['append']}")
+glossary = {"name": "for", "meaning": "loop that iterates through code in its body for a set amount of times until a condition is met"}, {"name": "while", "meaning": "controls flow statement which repeatedly executes a block of code until the condition is satisfied"}, {"name": "remove", "meaning": "remove an item from a list by its value and not by its index number"}, {"name": "print", "meaning": "print the specified message to the screen"}, {"name": "append", "meaning": "used to add a single item to certain collection types"}
+for words in glossary:
+    print(f"Definition of {words['name']}: {words['meaning']}\n//////////")
 
 
 # 6-7. Start with the program you wrote for Exercise 6-1. Make two new dictionaries representing 
 # different people, and store all three dictionaries in a list called people. Loop through your 
 # list of people. As you loop through the list, print everything you know about each person.
+
+persons = {"first_name": "Enzo", "last_name": "Ferrari", "age": 30, "city": "Maranello"},{"first_name": "Ferruccio", "last_name": "Lamborghini", "age": 35, "city": "Bologna"},{"first_name":"Tony", "last_name": "Effe", "age": 40, "city": "Roma"},{"first_name":"Vladimir", "last_name": "Putin", "age": 61, "city": "Moscow"},{"first_name":"Gianni", "last_name": "Morandi", "age": 60, "city": "Monghidoro"}
+for person in persons:
+    print(f" Name: {person['first_name']}\n Last Name: {person['last_name']}\n Age: {person['age']}\n City: {person['city']}\n//////////")
+
+
+# 6-8. Make several dictionaries, where each dictionary represents a different pet. In each 
+# dictionary, include the kind of animal and the owner’s name. Store these dictionaries in a 
+# list called pets. Next, loop through your list and as you do, print everything you know about each pet. 
+
+pets = {"animal": "dog", "owner": "Jack"}, {"animal": "cat", "owner": "Marco"}, {"animal": "bird", "owner": "Rick"}
+for pet in pets:
+    print(f"The animal is a {pet['animal']} and the owner is {pet['owner']}")
+
+
+# 6-9. Make a dictionary called favorite_places. Think of three names to use 
+# as keys in the dictionary, and store one to three favorite places for each person. To make 
+# this exercise a bit more interesting, ask some friends to name a few of their favorite places. 
+# Loop through the dictionary, and print each person’s name and their favorite places.
+
+favorite_places = {"name": "Jack", "fav_place": "Rome"},{"name": "Marco", "fav_place": "Paris"},{"name": "Rick", "fav_place": "Berlin"}
+for place in favorite_places:
+    print(f"{place['name']}'s favorite place is {place['fav_place']}")
+
+
+# 6-10. Modify your program from Exercise 6-2 so each person can have more than 
+# one favorite number. Then print each person’s name along with their favorite numbers.
+
+persons = {"name": "Dante", "fav_number": 3 | 33 | 333}, {"name": "Jerry", "fav_number": 10}, {"name": "Rick", "fav_number": 11}, {"name": "Edwin", "fav_number": 5}, {"name": "Mia", "fav_number": 17}
+for person in persons:
+    print(f"{person['name']}'s favorite number is {person['fav_number']}\n//////////")
