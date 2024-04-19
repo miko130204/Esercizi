@@ -110,13 +110,10 @@ print(f"Hello everyone, I just found a bigger table so there will be 3 more peop
 guest_list.insert(0,"Gianni")
 guest_list.insert(3, "Stan Lee")
 guest_list.append("Johnny")
-print(f"Hi {guest_list[0]}, I would like to invite you to dinner tonight.")
-print(f"Hi {guest_list[1]}, I would like to invite you to dinner tonight.")
-print(f"Hi {guest_list[2]}, I would like to invite you to dinner tonight.")
-print(f"Hi {guest_list[3]}, I would like to invite you to dinner tonight.")
-print(f"Hi {guest_list[4]}, I would like to invite you to dinner tonight.")
-print(f"Hi {guest_list[5]}, I would like to invite you to dinner tonight.")
-print(f"Hi {guest_list[6]}, I would like to invite you to dinner tonight.")
+i=0
+while i<6:
+    print(f"Hi {guest_list[i]}, I would like to invite you to dinner tonight.")
+    i += 1
 
 
 # 3-7. You just found out that your new dinner table won’t arrive in time for the dinner, and now you have space for only two guests.
@@ -125,13 +122,12 @@ print(f"Hi {guest_list[6]}, I would like to invite you to dinner tonight.")
 # • Print a message to each of the two people still on your list, letting them know they’re still invited.
 # • Use del to remove the last two names from your list, so you have an empty list. Print your list to make sure you actually have an empty list at the end of your program.
 
-guest_list = ["Gianni", "Dante", "Kratos", "Stan Lee", "Rick", "Jordi", "Johnny"]
+guest_list = ["Gianni", "Johnny", "Kratos", "Stan Lee", "Jordi", "Rick", "Dante"]
 print(f"Hello everyone, I'm really sorry but the only avaivable table is for only 2 person :( ")
-print(f"I'm sorry {guest_list.pop(0)} but I can't invite you to dinner")
-print(f"I'm sorry {guest_list.pop(1)} but I can't invite you to dinner")
-print(f"I'm sorry {guest_list.pop(1)} but I can't invite you to dinner")
-print(f"I'm sorry {guest_list.pop(3)} but I can't invite you to dinner")
-print(f"I'm sorry {guest_list.pop(2)} but I can't invite you to dinner")
+i = 0
+while i !=4:
+    print(f"I'm sorry {guest_list.pop(i)} but I can't invite you to dinner")
+    i += 1
 print(f"Hi {guest_list[0]}, you are still invited to dinner tonight.")
 print(f"Hi {guest_list[1]}, you are still invited to dinner tonight.")
 
@@ -201,10 +197,7 @@ print(cars)
 # last name, age, and the city in which they live. You should have keys such as first_name, 
 # last_name, age, and city. Print each piece of information stored in your dictionary.
 
-person1 = {"first_name": "Enzo", "last_name": "Ferrari", "age": 30, "city": "Maranello"}
-person2 = {"first_name": "Ferruccio", "last_name": "Lamborghini", "age": 35, "city": "Bologna"}
-person3 = {"first_name": "Tony", "last_name": "Effe", "age": 40, "city": "Roma"}
-persons = [person1, person2, person3]
+persons = {"first_name": "Enzo", "last_name": "Ferrari", "age": 30, "city": "Maranello"}, {"first_name": "Ferruccio", "last_name": "Lamborghini", "age": 35, "city": "Bologna"}, {"first_name": "Tony", "last_name": "Effe", "age": 40, "city": "Roma"}
 for person in persons:
     print(f" Name: {person['first_name']}\n Last Name: {person['last_name']}\n Age: {person['age']}\n City: {person['city']}\n//////////")
 
@@ -264,6 +257,6 @@ for place in favorite_places:
 # 6-10. Modify your program from Exercise 6-2 so each person can have more than 
 # one favorite number. Then print each person’s name along with their favorite numbers.
 
-persons = {"name": "Dante", "fav_number": 3 | 33 | 333}, {"name": "Jerry", "fav_number": 10}, {"name": "Rick", "fav_number": 11}, {"name": "Edwin", "fav_number": 5}, {"name": "Mia", "fav_number": 17}
+persons = {"name": "Dante", "fav_number": [3, 33, 333]}, {"name": "Jerry", "fav_number": 10}, {"name": "Rick", "fav_number": 11}, {"name": "Edwin", "fav_number": 5}, {"name": "Mia", "fav_number": 17}
 for person in persons:
     print(f"{person['name']}'s favorite number is {person['fav_number']}\n//////////")
