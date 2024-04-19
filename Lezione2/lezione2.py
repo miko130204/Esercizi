@@ -257,6 +257,19 @@ for place in favorite_places:
 # 6-10. Modify your program from Exercise 6-2 so each person can have more than 
 # one favorite number. Then print each person’s name along with their favorite numbers.
 
-persons = {"name": "Dante", "fav_number": [3, 33, 333]}, {"name": "Jerry", "fav_number": 10}, {"name": "Rick", "fav_number": 11}, {"name": "Edwin", "fav_number": 5}, {"name": "Mia", "fav_number": 17}
+persons = {"name": "Dante", "fav_number": [3, 33, 333]}, {"name": "Jerry", "fav_number": [2, 4]}, {"name": "Rick", "fav_number": [11, 6]}, {"name": "Edwin", "fav_number": [5, 10]}, {"name": "Mia", "fav_number": [3, 99]}
 for person in persons:
     print(f"{person['name']}'s favorite number is {person['fav_number']}\n//////////")
+
+
+# 6-11. Make a dictionary called cities. Use the names of three cities as keys in 
+# your dictionary. Create a dictionary of information about each city and include the country 
+# that the city is in, its approximate population, and one fact about that city. The keys for 
+# each city’s dictionary should be something like country, population, and fact. Print the name 
+# of each city and all of the information you have stored about it.
+
+cities = {"name": "Milan"}, {"name": "Paris"}, {"name": "Berlin"}
+info = {"country": "Italy", "population": 59000000, "fact": "Rome is over 2000 years old"}, {"country": "France", "population": 68000000, "fact": "The form of government is Republic"}, {"country": "Germany", "population": 84000000, "fact": "Berlin has the largest train station in Europe"}
+info_cities = [cities, info]
+for city in info_cities:
+    print(f"{city['name']} is a city in {city['country']}, the population is {city['population']} and a fact is: {city['fact']}\n//////////")
