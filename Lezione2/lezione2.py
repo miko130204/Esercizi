@@ -268,8 +268,6 @@ for person in persons:
 # each city’s dictionary should be something like country, population, and fact. Print the name 
 # of each city and all of the information you have stored about it.
 
-cities = {"name": "Milan"}, {"name": "Paris"}, {"name": "Berlin"}
-info = {"country": "Italy", "population": 59000000, "fact": "Rome is over 2000 years old"}, {"country": "France", "population": 68000000, "fact": "The form of government is Republic"}, {"country": "Germany", "population": 84000000, "fact": "Berlin has the largest train station in Europe"}
-info_cities = [cities, info]
+info_cities = {"name": "Milan", "country": "Italy", "population": 59000000, "fact": "Rome is over 2000 years old"}, {"name": "Paris", "country": "France", "population": 68000000, "fact": "The form of government in France is Republic"}, {"name": "Berlin", "country": "Germany", "population": 84000000, "fact": "Berlin has the largest train station in Europe"}
 for city in info_cities:
     print(f"{city['name']} is a city in {city['country']}, the population is {city['population']} and a fact is: {city['fact']}\n//////////")
