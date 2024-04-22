@@ -140,3 +140,21 @@ for pizza in friend_pizzas:
 
 # 4-12. All versions of foods.py in this section have avoided using for loops when printing, to save space. Choose a version 
 # of foods.py, and write two for loops to print each list of foods.
+
+
+# 4-15. Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
+
+
+
+# 5-1. Write a series of conditional tests. Print a statement
+# describing each test and your prediction for the results of each test. Your code
+# should look something like this:
+# car = 'subaru'
+# print("Is car == 'subaru'? I predict True.")
+# print(car == 'subaru')
+# print("\nIs car == 'audi'? I predict False.")
+# print(car == 'audi')
+# • Look closely at your results, and make sure you understand why each line
+# evaluates to True or False.
+# • Create at least 10 tests. Have at least 5 tests evaluate to True and another
+# 5 tests evaluate to False.
