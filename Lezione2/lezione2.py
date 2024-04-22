@@ -249,7 +249,7 @@ for pet in pets:
 # this exercise a bit more interesting, ask some friends to name a few of their favorite places. 
 # Loop through the dictionary, and print each person’s name and their favorite places.
 
-favorite_places = {"name": "Jack", "fav_place": "Rome"},{"name": "Marco", "fav_place": "Paris"},{"name": "Rick", "fav_place": "Berlin"}
+favorite_places = {"name": "Jack", "fav_place": ["Rome", "Monza"]},{"name": "Marco", "fav_place": "Paris"},{"name": "Rick", "fav_place": ["Berlin", "Monaco", "Timbuktu"]}
 for place in favorite_places:
     print(f"{place['name']}'s favorite place is {place['fav_place']}")
 
@@ -270,4 +270,15 @@ for person in persons:
 
 info_cities = {"name": "Milan", "country": "Italy", "population": 59000000, "fact": "Rome is over 2000 years old"}, {"name": "Paris", "country": "France", "population": 68000000, "fact": "The form of government in France is Republic"}, {"name": "Berlin", "country": "Germany", "population": 84000000, "fact": "Berlin has the largest train station in Europe"}
 for city in info_cities:
-    print(f"{city['name']} is a city in {city['country']}, the population is {city['population']} and a fact is: {city['fact']}\n//////////")
+    print(f"{city['name']} is a city in {city['country']}, the current population is around {city['population']} and a fact is: {city['fact']}\n//////////")
+
+
+# 6-12. We’re now working with examples that are complex enough that they can be extended in any
+# number of ways. Use one of the example programs from this chapter, and extend it by adding new 
+# keys and values, changing the context of the program, or improving the formatting of the output.
+
+name: str= input("What's your name? ")
+age: int = input("How old are you? ")
+city: str = input("Where are you from? ")
+persons = {'first_name': name, 'age': age, 'city': city}
+print(f" Name: {persons['first_name']}\n Age: {persons['age']}\n City: {persons['city']}\n//////////")
