@@ -83,7 +83,7 @@ for number in odd_numbers:
 # 4-7. Make a list of the multiples of 3, from 3 to 30. Use a for loop to print the numbers in your list.
 
 multiples_3 = list(range(2, 31, 3))
-for number in multiples_3:
+for number in multiples_3: 
     print(number)
 
 # 4-8. A number raised to the third power is called a cube. For example, the cube of 2 is written as 2**3 
