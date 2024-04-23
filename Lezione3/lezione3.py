@@ -477,6 +477,7 @@ if (not usernames):
 
 current_users = ["admin", "cyber", "cloud", "fullstack", "guest"]
 new_users = []
+answer = ""
 while answer != "stop":
     answer = input("Please enter a username (Type stop to exit the loop): ")
     if (answer in current_users):
