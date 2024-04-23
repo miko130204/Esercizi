@@ -141,9 +141,12 @@ for pizza in friend_pizzas:
 # 4-12. All versions of foods.py in this section have avoided using for loops when printing, to save space. Choose a version 
 # of foods.py, and write two for loops to print each list of foods.
 
+"alreay done in excercise 4-11"
+
 
 # 4-15. Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
 
+"I already used pep8"
 
 
 # 5-1. Write a series of conditional tests. Print a statement
@@ -158,3 +161,198 @@ for pizza in friend_pizzas:
 # evaluates to True or False.
 # • Create at least 10 tests. Have at least 5 tests evaluate to True and another
 # 5 tests evaluate to False.
+
+
+number = 4
+print("Is number == 4? I predict True")
+print(number == 4)
+
+fruit = "strawberry"
+print("\nIs fruit != strawberry? I predict True")
+print(fruit != "strawberry")
+
+age = 17
+print("\nIs age > 18? I predict False")
+print(age > 18)
+
+animals = ["cat", "dog", "bird"]
+print("\nIs bird in animals? I predict Flase")
+print('bird' in animals)
+
+
+# 5-2. You don’t have to limit the number of tests you cre-
+# ate to 10. If you want to try more comparisons, write more tests and add them
+# to conditional_tests.py. Have at least one True and one False result for each of
+# the following:
+# • Tests for equality and inequality with strings
+# • Tests using the lower() method
+# • Numerical tests involving equality and inequality, greater than and less
+# than, greater than or equal to, and less than or equal to
+# • Tests using the and keyword and the or keyword
+# • Test whether an item is in a list
+# • Test whether an item is not in a list
+
+# string equal to
+string = "hello"
+if (string == "hello"):
+    print(True)
+else:
+    print(False)
+
+string = "hell"
+if (string == "hello"):
+    print(True)
+else:
+    print(False)
+
+#lower method
+string = "HELLO"
+if (string.lower() == "hello"):
+    print(True)
+else:
+    print(False)
+
+string = "hello"
+if (string.lower() == "HELLO"):
+    print(True)
+else:
+    print(False)
+
+#number equal to
+num = 4
+if (num == 4):
+    print(True)
+else:
+    print(False)
+
+num = 3
+if (num == 4):
+    print(True)
+else:
+    print(False)
+
+#number greater than
+num = 4
+if (num > 3):
+    print(True)
+else:
+    print(False)
+
+num = 3
+if (num > 4):
+    print(True)
+else:
+    print(False)
+
+#number greater or equal
+num = 5
+if (num >= 4 ):
+    print(True)
+else:
+    print(False)
+
+num = 4
+if (num >= 5 ):
+    print(True)
+else:
+    print(False)
+
+#number lower or equal
+num = 4
+if (num <= 5 ):
+    print(True)
+else:
+    print(False)
+
+num = 5
+if (num <= 4 ):
+    print(True)
+else:
+    print(False)
+
+#and keyword
+num = 4
+if (num <= 5 and num <= 6):
+    print(True)
+else:
+    print(False)
+
+num = 5
+if (num <= 4 and num >= 6):
+    print(True)
+else:
+    print(False)
+
+#or keyword
+num = 4
+if (num <= 5 or num <= 6):
+    print(True)
+else:
+    print(False)
+
+num = 5
+if (num <= 4 or num >= 6):
+    print(True)
+else:
+    print(False)
+
+#list
+num_list = [1,2,3]
+if (1 in num_list):
+    print(True)
+else:
+    print(False)
+
+num_list = [1,2,3]
+if (4 in num_list):
+    print(True)
+else:
+    print(False)
+
+#not in list
+num_list = [1,2,3]
+if (4 not in num_list):
+    print(True)
+else:
+    print(False)
+
+num_list = [1,2,3]
+if (3 not in num_list):
+    print(True)
+else:
+    print(False)
+
+
+# 5-3. Imagine an alien was just shot down in a game. Create a variable called alien_color and assign it a value of 'green', 'yellow', or 'red'.
+# • Write an if statement to test whether the alien’s color is green. If it is, print a message that the player just earned 5 points.
+# • Write one version of this program that passes the if test and another that fails. (The version that fails will have no output.)
+
+#true
+alien_color = 'green'
+if (alien_color == 'green'):
+    print("You just earned 5 points")
+
+#false
+alien_color = 'red'
+if (alien_color == 'green'):
+    print("You just earned 5 points")
+
+
+# 5-4. Choose a color for an alien as you did in Exercise 5-3, and write an if-else chain.
+# • If the alien’s color is green, print a statement that the player just earned 5 points for shooting the alien.
+# • If the alien’s color isn’t green, print a statement that the player just earned 10 points.
+# • Write one version of this program that runs the if block and another that runs the else block.
+
+#if block
+alien_color = 'green'
+if (alien_color == 'green'):
+    print("You just earned 5 points for shooting the alien")
+else:
+    print("You just earned 10 points")
+
+#else block
+alien_color = 'yellow'
+if (alien_color == 'green'):
+    print("You just earned 5 points for shooting the alien")
+else:
+    print("You just earned 10 points")
