@@ -346,13 +346,116 @@ if (alien_color == 'green'):
 #if block
 alien_color = 'green'
 if (alien_color == 'green'):
-    print("You just earned 5 points for shooting the alien")
+    print("You just earned 5 points")
 else:
     print("You just earned 10 points")
 
 #else block
 alien_color = 'yellow'
 if (alien_color == 'green'):
-    print("You just earned 5 points for shooting the alien")
+    print("You just earned 5 points")
 else:
     print("You just earned 10 points")
+
+
+#Turn your if-else chain from Exercise 5-4 into an if-elif-else chain.
+# • If the alien is green, print a message that the player earned 5 points.
+# • If the alien is yellow, print a message that the player earned 10 points.
+# • If the alien is red, print a message that the player earned 15 points.
+# • Write three versions of this program, making sure each message is printed for the appropriate color alien.
+
+#green
+alien_color = 'green'
+if (alien_color == 'green'):
+    print("You just earned 5 points")
+elif (alien_color == 'yellow'):
+    print("You just earned 10 points")
+elif (alien_color == 'red'):
+    print("You just earned 15 points")
+
+#yellow
+alien_color = 'yellow'
+if (alien_color == 'green'):
+    print("You just earned 5 points")
+elif (alien_color == 'yellow'):
+    print("You just earned 10 points")
+elif (alien_color == 'red'):
+    print("You just earned 15 points")
+
+#red
+alien_color = 'red'
+if (alien_color == 'green'):
+    print("You just earned 5 points")
+elif (alien_color == 'yellow'):
+    print("You just earned 10 points")
+elif (alien_color == 'red'):
+    print("You just earned 15 points")
+
+
+# 5-6. Write an if-elif-else chain that determines a person’s stage of life. Set a value for the variable age, and then:
+# • If the person is less than 2 years old, print a message that the person is a baby.
+# • If the person is at least 2 years old but less than 4, print a message that the person is a toddler.
+# • If the person is at least 4 years old but less than 13, print a message that the person is a kid.
+# • If the person is at least 13 years old but less than 20, print a message that the person is a teenager.
+# • If the person is at least 20 years old but less than 65, print a message that the person is an adult.
+# • If the person is age 65 or older, print a message that the person is an elder.
+
+age = 20
+if (age < 2):
+    print("You are a baby")
+elif (age >= 2 and age < 4):
+    print("You are a toddler")
+elif (age >= 4 and age < 13):
+    print("You are a kid")
+elif (age >= 13 and age < 20):
+    print("You are a teenager")
+elif (age >= 20 and age < 65):
+    print("You are a adult")
+elif (age >= 65):
+    print("You are a elder")
+
+
+# 5-7. Make a list of your favorite fruits, and then write a series of independent if statements 
+# that check for certain fruits in your list.
+# • Make a list of your three favorite fruits and call it favorite_fruits.
+# • Write five if statements. Each should check whether a certain kind of fruit is in your list. If the fruit is in 
+# your list, the if block should print a statement, such as You really like Apples!
+
+fruits = ["strawberry", "mango", "raspberry"]
+
+if ("strawberry" in fruits):
+    print("You really like strawberry")
+else:
+    print("The strawberry is not in the list")
+if ("mango" in fruits):
+    print("You really like mango")
+else:
+    print("The mango is not in the list")
+if ("raspberry" in fruits):
+    print("You really like raspberry")
+else:
+    print("The raspberry is not in the list")
+if ("apple" in fruits):
+    print("You really like apple")
+else:
+    print("The apple is not in the list")
+if ("anans" in fruits):
+    print("You really like ananas")
+else:
+    print("The ananas is not in the list")
+
+
+# 5-8. Make a list of five or more usernames, including the name 'admin'. Imagine you are writing code that 
+# will print a greeting to each user after they log in to a website. Loop through the list, and print a greeting to each user.
+# • If the username is 'admin', print a special greeting, such as Hello admin, would you like to see a status report?
+# • Otherwise, print a generic greeting, such as Hello Jaden, thank you for logging in again.
+
+usernames = ["admin", "cyber", "cloud", "fullstack", "guest"]
+for user in usernames:
+    if (user == "admin"):
+        print("Hello admin, would you like to see a status report?")
+    else:
+        print(f"Hello {user}, thank you for logging in again.")
+
+
+
