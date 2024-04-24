@@ -201,3 +201,21 @@ def bubble_sort(A):
 
 bubble_list = [i for i in range(1, 1000000, 10)]
 print(bubble_sort(bubble_list))
+
+
+# EVEN IMPROVED BUBBLE SORT
+def bubble_sort(A):
+    for i in range(len(A)):
+        swap_flag = False
+        for j in range(len(A) -i -1):
+            if (A[j] > A[j+1]):
+                swap_flag = True
+                var = A[j]
+                A[j] = A[j+1]
+                A[j+1] = var
+        if swap_flag is False:
+            return A
+    return A
+
+bubble_list = [i for i in range(1, 1000000, 10)]
+print(bubble_sort(bubble_list))
