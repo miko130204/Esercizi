@@ -162,10 +162,10 @@ def show_messages(param1):
     mess_list = []
     mess_sent  = []
     mess_list.append(param1)
-    for message in mess_list:
-        return message
-    for message in mess_sent:
-        return message
+    for message_list in mess_list:
+        return message_list
+    for message_sent in mess_sent:
+        return message_sent
 
 answer = ""
 while(answer != "stop"):
@@ -185,5 +185,19 @@ def bubble_sort(A):
                 A[j+1] = var
     return A
 
-bubble_list = [2,5,1,2,6,3,8,4,7]
+bubble_list = [2, 5, 1, 2, 6, 3, 8, 4, 7]
+print(bubble_sort(bubble_list))
+
+
+# IMPROVED BUBBLE SORT
+def bubble_sort(A):
+    for i in range(len(A)):
+        for j in range(len(A) -i -1):
+            if (A[j] > A[j+1]):
+                var = A[j]
+                A[j] = A[j+1]
+                A[j+1] = var
+    return A
+
+bubble_list = [i for i in range(1, 1000000, 10)]
 print(bubble_sort(bubble_list))
