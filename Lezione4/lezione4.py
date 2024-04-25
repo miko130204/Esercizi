@@ -150,8 +150,11 @@ def show_messages(param1):
 answer = ""
 while(answer != "stop"):
     answer = input("Type a short message (If you're done type \"stop\") ")
-    messages = show_messages(answer)
-    print(messages)
+    if (answer == "stop"):
+        break
+    else:
+        messages = show_messages(answer)
+        print(messages)
 
 
 # 8-10. Start with a copy of your program from Exercise 8-9. Write a function called send_messages() that prints each text 
