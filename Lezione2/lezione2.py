@@ -249,7 +249,7 @@ for pet in pets:
 # this exercise a bit more interesting, ask some friends to name a few of their favorite places. 
 # Loop through the dictionary, and print each person’s name and their favorite places.
 
-favorite_places = {"name": "Jack", "fav_place": ["Rome", "Monza"]},{"name": "Marco", "fav_place": "Paris"},{"name": "Rick", "fav_place": ["Berlin", "Monaco", "Timbuktu"]}
+favorite_places = {"name": "Jack", "fav_place": ["Rome", "Monza"]}, {"name": "Marco", "fav_place": "Paris"}, {"name": "Rick", "fav_place": ["Berlin", "Monaco", "Timbuktu"]}
 for place in favorite_places:
     print(f"{place['name']}'s favorite place is {place['fav_place']}")
 

@@ -141,8 +141,8 @@ while(answer != "stop"):
 # 8-9. Make a list containing a series of short text messages. Pass the list to a function called show_messages(), 
 # which prints each text message.
 
+mess_list = []
 def show_messages(param1):
-    mess_list = []
     mess_list.append(param1)
     for message in mess_list:
         return message
@@ -161,21 +161,193 @@ while(answer != "stop"):
 # message and moves each message to a new list called sent_messages as it’s printed. After calling the function, print both 
 # of your lists to make sure the messages were moved correctly.
 
+mess_list = []
+sent_messages  = []
 def show_messages(param1):
-    mess_list = []
-    mess_sent  = []
     mess_list.append(param1)
-    for message_list in mess_list:
-        return message_list
-    for message_sent in mess_sent:
-        return message_sent
+    print(param1)
+    
+def send_messages(param1):
+    print(param1)
+    sent_messages.append(param1)
 
 answer = ""
 while(answer != "stop"):
     answer = input("Type a short message (If you're done type \"stop\") ")
-    messages = show_messages(answer)
-    print(messages)
+    if (answer == "stop"):
+        break
+    else:
+        show_messages(answer)
+        send_messages(answer)
+print(mess_list)
+print(sent_messages)
 
+
+# 8-11. Start with your work from Exercise 8-10. Call the function send_messages() with a copy of the list of messages. After 
+# calling the function, print both of your lists to show that the original list has retained its messages.
+
+mess_list = []
+sent_messages = []
+
+def show_messages(param1):
+    mess_list.append(param1)
+    print(param1)
+
+def send_messages(param1):
+    print(param1)
+    sent_messages.append(param1)
+
+answer = ""
+while answer != "stop":
+    answer = input("Type a short message (If you're done type \"stop\") ")
+    if answer == "stop":
+        break
+    else:
+        show_messages(answer)
+        send_messages(answer)
+
+print(f"Original messages: {mess_list}")
+print(f"Sent messages: {sent_messages}")
+
+
+# 8-12. Write a function that accepts a list of items a person wants on a sandwich. The function should have one parameter 
+# that collects as many items as the function call provides, and it should print a summary of the sandwich that’s being 
+# ordered. Call the function three times, using a different number of arguments each time.
+
+sandwich = []
+
+def sandwich_items (param1):
+    sandwich.append(param1)
+
+answer = " "
+i = 5
+while i > -1:
+    if (i == 0):
+        print(f"You have no items left")
+        i -= 1
+    else:
+        answer = input(f"Insert an item you want in your sandwich (You have {i} items left) ")
+        sandwich_items(answer)
+        i -= 1
+    if (answer == ""):
+        break
+
+print(f"You're sandwich has the following items: {sandwich}")
+
+
+# 8-13. Build a profile of yourself by calling build_profile(), using your first and last names and three other key-value pairs 
+# hat describe you. All the values must be passed to the function as parameters. The function then must return a string such 
+# as "Eric Crow, age 45, hair brown, weight 67"
+
+def build_profile(first_name, last_name, age, height, weight):
+    profile = f"{first_name} {last_name}\nage: {age}\nheight: {height}\nweight:ss {weight}"
+    return profile
+
+param1 = input("Name: ")
+param2 = input("Last name: ")
+param3 = input("Age: ")
+param4 = input("Height: ")
+param5 = input("Weight: \n")
+
+print(build_profile(param1, param2, param3, param4, param5))
+
+
+# 8-14. Write a function that stores information about a car in a dictionary. The function should always receive a manufacturer and 
+# a model name. It should then accept an arbitrary number of keyword arguments. Call the function with the required information and 
+# two other name-value pairs, such as a color or an optional feature. Your function should work for a call like this one: 
+# car = make_car('subaru', 'outback', color='blue', tow_package=True) Print the dictionary that’s returned to make sure all the information was stored correctly. 
+
+def car_info(param1, param2, param3, param4):
+    car = {'manufacturer': param1, 
+           'model': param2, 
+           'color': param3, 
+           "optional": param4}
+    return car
+
+param1 = input("Manufacturer: ")
+param2 = input("Model: ")
+param3 = input("Color: ")
+param4 = input("Optional: ")
+
+print(car_info(param1, param2, param3, param4))
+
+
+# 8-15. Put the functions for the example printing_models.py in a separate file called printing_functions.py. Write an import statement at the top of printing_models.py, 
+# and modify the file to use the imported functions.
+
+from printing_functions import car_info
+
+param1 = input("Manufacturer: ")
+param2 = input("Model: ")
+param3 = input("Color: ")
+param4 = input("Optional: ")
+
+print(car_info(param1, param2, param3, param4))
+
+
+# 8-16. Using a program you wrote that has one function in it, store that function in a separate file. Import the function into your main program file, and call the 
+# function using each of these approaches:
+# import module_name
+# from module_name import function_name
+# from module_name import function_name as fn
+# import module_name as mn
+# from module_name import *
+
+# The file choosen is 8-13
+
+import build_profile_function
+from build_profile_function import build_profile
+from build_profile_function import build_profile as fn
+import build_profile_function as mn
+from build_profile_function import *
+
+param1 = input("Name: ")
+param2 = input("Last name: ")
+param3 = input("Age: ")
+param4 = input("Height: ")
+param5 = input("Weight: ")
+print("       ")
+
+print(build_profile(param1, param2, param3, param4, param5))
+
+
+# 8-17. Choose any three programs you wrote for this chapter, and make sure they follow the styling guidelines described in this section.
+
+# ex 8-5
+from printing_functions import describe_city
+
+country = "Italy"
+print(describe_city(param1= "Venice", param2 = country))
+print(describe_city(param1= "Turin", param2 = country))
+print(describe_city(param1= "Berlin", param2 = "Germany"))
+
+# ex 8-6
+from printing_functions import city_country
+
+city1 = "Rome"
+country1 = "Italy"
+city2 = "Paris"
+country2 = "France"
+city3 = "Berlin"
+country3 = "Germany"
+
+print(city_country(city1, country1))
+print(city_country(city2, country2))
+print(city_country(city3, country3))
+
+# ex 8-7
+from printing_functions import make_album
+
+album1 = make_album('Eminem', 'Encore')
+album2 = make_album('Metallica', 'Kill \'em all', 12)
+album3 = make_album('AC/DC', 'Thunderstruck', 10)
+
+print(album1)
+print(album2)
+print(album3)
+
+
+##################################################
 
 # BUBBLE SORT
 
