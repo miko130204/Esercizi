@@ -121,3 +121,64 @@ def third_max(nums: list[int]) -> int:
         
 jewels = [3, 2, 1]
 third_max(jewels)
+
+###############################
+##############################
+
+def ugly_number(num: int) -> bool:
+    if num <= 0:
+        return False
+        
+    while num % 2 == 0:
+        num //= 2
+    while num % 3 == 0:
+        num //= 3
+    while num % 5 == 0:
+        num //= 5
+        
+    return num == 1
+
+###############################
+
+from collections import Counter
+
+def find_lhs(nums: list[int]) -> int:
+    max_length = 0
+    freq = Counter(nums)
+        
+    for num in freq:
+        if num + 1 in freq:
+            max_length = max(max_length, freq[num] + freq[num + 1])
+            
+    return max_length
+
+###############################
+
+def to_hex(num: int) -> str:
+    if num == 0:
+        return '0'
+        
+    chars = '0123456789abcdef'
+    result = ''
+        
+    if num < 0:
+        num += 2 ** 32
+    while num > 0:
+        num, remain = num // 16, num % 16
+        result = chars[remain] + result
+    return result
+
+###############################
+
+def ransom(note: str, magazine: str) -> bool:
+    magazine_letters = {letter: magazine.count(letter) for letter in set(magazine)}
+        
+    for letter in note:
+        if letter not in magazine_letters or magazine_letters[letter] == 0:
+            return False
+        magazine_letters[letter] -= 1
+    return True
+    
+ransom("a", "b")
+ransom("aa", "ab")
+ransom("aa","aab")
