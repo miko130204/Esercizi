@@ -1,13 +1,13 @@
-class Persona:
+class Person:
 
-    def __init__(self, nome: str, cognome: str, codice_fiscale: str) -> None:
-        self.nome: str = nome
-        self.cognome: str = cognome
-        self.codice_fiscale: str = codice_fiscale
-
-
+    def __init__(self, name: str, surname: str, ssn: str) -> None:
+        self.name: str = name
+        self.surname: str = surname
+        self.ssn: str = ssn
 
 
-persona_1: Persona = Persona(nome = "Miko", cognome = "Mrc", codice_fiscale = "MRCMLJ04")
 
-print(persona_1.nome, persona_1.cognome, persona_1.codice_fiscale)
+
+person_1: Person = Person(name = "Miko", surname = "Mrc", ssn = "MRCMLJ04")
+
+print(person_1.name, person_1.surname, person_1.ssn)
