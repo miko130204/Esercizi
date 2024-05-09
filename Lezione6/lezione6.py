@@ -8,7 +8,7 @@ class Person:
         self._birth_date: str = birth_date
         self._birth_place: str = birth_place
         self._gender: str = gender
-        self._ssn: str = self.compute._ssn()
+        self._ssn: str = self.compute_ssn()
 
     def get_name(self):
         return self._name
@@ -17,7 +17,7 @@ class Person:
         raise Exception("You cannot modify the name! ")
     
     def get_ssn(self):
-        return self.ssn
+        return self._ssn
     
     def set_ssn(self, ssn: str):
         """
@@ -31,12 +31,13 @@ class Person:
         first_three_name_char = self._name[:3]
         last_three_surname_char = self._surname[-3:]
         self._ssn = first_three_name_char + last_three_surname_char
+        return self._ssn
 
 
 
-person_1: Person = Person(name = "Miko", surname = "Mrc", ssn = "MRCMLJ04")
+person_1: Person = Person(name = "Miko", surname = "Garbatello", birth_date = "22/10/99", birth_place = "Italy", gender = "Male")
 
-person_2: Person = Person(name = "Giuseppe", surname = "FFF", ssn = "BHO32")
+person_2: Person = Person(name = "Giuseppe", surname = "Magliana", birth_date = "10/02/89", birth_place = "France", gender = "Man")
 
 queue: list[Person] = [person_1, person_2]
 
