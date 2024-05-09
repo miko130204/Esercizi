@@ -112,12 +112,10 @@ class Menu:
             print(food._price)
 
     def get_average_price(self) -> float:
-        i: int  = 0
-        sium: int = 0
+        sium: float = 0
         for food in food_list:
             sium += food._price
-            i += 1
-        avg = sium/i
+        avg = sium/len(food_list)
         return avg
 
 food1: Food = Food("Peach", 5, "Fruit")
@@ -132,5 +130,6 @@ menu_fesso: Menu = Menu([food_list])
 menu_fesso.addFood(food4)
 menu_fesso.addFood(food5)
 menu_fesso.removeFood(0)
-print(menu_fesso.get_average_price())
+
+menu_fesso.get_average_price()
 

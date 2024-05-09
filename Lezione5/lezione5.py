@@ -104,3 +104,18 @@ print(modify_event(dictionary, name, ["Alice", "Bob"], "6pm"))
 # Write a function called print_shopping_list() that accepts a dictionary and a store name, then prints each item 
 # from that store's shopping list.
 
+class Shopping:
+    def __init__(self, name: str, items: list):
+        self._name: str = name
+        self._items: list = items
+        self._shopping_list = {'name': name, 'items': items}
+    
+    def get_list(self):
+        print(self._shopping_list['items'])
+
+store = "Grocery Store"
+shopping_list = {"Milk", "Eggs", "Bread"}
+
+shopping_list1: Shopping = Shopping(store, shopping_list)
+
+shopping_list1.get_list()
