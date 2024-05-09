@@ -131,5 +131,5 @@ menu_fesso.addFood(food4)
 menu_fesso.addFood(food5)
 menu_fesso.removeFood(0)
 
-menu_fesso.get_average_price()
+print(menu_fesso.get_average_price())
 
