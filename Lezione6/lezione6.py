@@ -43,3 +43,24 @@ queue: list[Person] = [person_1, person_2]
 
 for person in queue:
     print(person.get_ssn())
+
+###########################################################à
+
+class Student:
+    
+    def __init__(self, name: str, studyProgram: str, age: int, gender: str):
+        self._name: str = name
+        self._studyProgram: str = studyProgram
+        self._age: int = age
+        self._gender: str = gender
+
+    def get_info(self):
+        return self._name, self._studyProgram, self._age, self._gender
+
+student_1: Student = Student("Giovanni", "Nothing", 25, "UOMO")
+student_left: Student = Student("Edgar", "Cyber", 24, "UOMO")
+student_right: Student = Student("Spartaco", "Cloud", 23, "UOMO")
+
+students = [student_1, student_left, student_right]
+for x in students:
+    print(x.get_info())
