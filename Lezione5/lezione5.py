@@ -12,10 +12,11 @@ def create_playlist(playlist_name, songs):
     return playlist
 
 def add_like(songs, playlist_name, liked):
-    playlist = (playlist_name, songs, liked)
     if liked == True:
+        playlist = (playlist_name, songs, liked)
         return playlist
     else:
+        playlist = (playlist_name, songs)
         return playlist
 
 songs = {"GRINDHOUSE", "RESPIRA"}
