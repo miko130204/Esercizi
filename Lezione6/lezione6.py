@@ -64,3 +64,27 @@ student_right: Student = Student("Spartaco", "Cloud", 23, "UOMO")
 students = [student_1, student_left, student_right]
 for x in students:
     print(x.get_info())
+
+
+###########################################
+
+class Animal:
+
+    def __init__(self, name: str):
+        self._name: str = name
+        self._legs: str = self.set_legs()
+
+    def set_legs(self):
+        self._legs = 4
+
+    def get_legs(self) -> int:
+        return self._legs
+    
+    def PrintInfo(self):
+        return (f"Name: {self._name}, legs: {self._legs}")
+    
+
+animal1: Animal = Animal("Fox")
+
+print(animal1.PrintInfo())
+
