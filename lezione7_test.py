@@ -15,8 +15,10 @@ def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
         voto = student['voto']
         if nome not in student_grades:
             student_grades[nome] = []
-        
+
         student_grades[nome].append(voto)
+        
+       
 
     return student_grades
 
@@ -30,3 +32,14 @@ def filtra_e_mappa(prodotti: dict[str:float]) -> list[str:float]:
             item.extend(key: value_discount)
             
     return item
+
+###############################
+
+def filtra_e_mappa(prodotti: dict[str:float]) -> list[str:float]:
+    items = {}
+    for key, value in prodotti.items():
+        value_discount = value - (value/100)*10
+        if value_discount > 20:
+            items[key] = value_discount
+            
+    return items
