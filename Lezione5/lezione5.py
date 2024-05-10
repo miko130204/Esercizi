@@ -5,18 +5,16 @@
 # Write a function called add_like() that accepts a dictionary, the name of a playlist, and a boolean value indicating 
 # whether it is liked (True or False). This function should return an updated dictionary.
 
-playlist = {}
-
 def create_playlist(playlist_name, songs):
     playlist = (playlist_name, songs)
     return playlist
 
 def add_like(songs, playlist_name, liked):
     if liked == True:
-        playlist = (playlist_name, songs, liked)
+        playlist = [playlist_name, songs, f"liked = {liked}"]
         return playlist
     else:
-        playlist = (playlist_name, songs)
+        playlist = [playlist_name, songs, f"liked = {liked}"]
         return playlist
 
 songs = {"GRINDHOUSE", "RESPIRA"}
@@ -50,7 +48,7 @@ def delete_book(name, books):
     return book_list
 
 author = "Edgar Allan Poe"
-books = ["Black Cat", "sss"]
+books = ["Black Cat", "The Crow"]
 
 print(add_book(author, books))
 print(delete_book(author, books))
@@ -73,8 +71,8 @@ def build_profile(name, surname, occupation = None, location = None, age = None)
      
 
 print(build_profile(name = "Mario", surname = "Rossi", occupation = "Worker", age = "27"))
-print(build_profile(name = "Mario", surname = "Rossi"))
-print(build_profile(name = "Mario", surname = "Rossi", age = "27"))
+print(build_profile(name = "Sandro", surname = "Bianchi", location = "Rome"))
+print(build_profile(name = "Marco", surname = "Verdi", age = "27"))
 
 
 # 4. Event Organizer:
