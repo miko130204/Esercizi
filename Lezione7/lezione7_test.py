@@ -29,7 +29,7 @@ def filtra_e_mappa(prodotti: dict[str:float]) -> list[str:float]:
     for key, value in prodotti:
         value_discount = value - (value/100)*10
         if value_discount > 20:
-            item.extend(key: value_discount)
+            item.extend((key, value_discount))
             
     return item
 
