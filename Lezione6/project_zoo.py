@@ -1,8 +1,8 @@
 class Zoo:
     def __init__(self, zoo_name: str):
         self._zoo_name: str = zoo_name
-        self.fences = []
-        self.zoo_keepers = []
+        self._fences = []
+        self._zoo_keepers = []
 
     def add_fence(self, fence):
         self._fences.append(fence)
@@ -11,8 +11,14 @@ class Zoo:
         self._zoo_keepers.append(zoo_keeper)
 
     def feed(self):
-        for fence in self.fences:
+        for fence in self._fences:
             fence.feed_animals()
+
+    def clean(self):
+        total_cleaning_time = 0.0
+        for fence in self._fences:
+            total_cleaning_time += fence.clean()
+        return total_cleaning_time
 
     def describe_zoo(self):
         1
@@ -61,17 +67,17 @@ class Fence:
             if self._area >= (animal._area * 1.04):
                 animal._health += (animal._health/100)*1
                 animal._area += (animal._area/100)*4
-                print(f"{animal._name} fed.")
+                print(f"{animal._name} has been fed ")
             else:
                 print(f"Not enough space in {self._name} to feed {animal._name}.")
 
 
     def clean(self, animal = Animal) -> float:
-        occupied_area = sum(animal._area for animal in self._animals_list)
+        occ_area = sum(animal._area for animal[Animal] in self._animals_list)
         if self._area > 0:
-            cleaning_time = occupied_area / self._area
+            cleaning_time = occ_area / self._area
         else:
-            cleaning_time = occupied_area
+            cleaning_time = occ_area
         print(f"{self._name} cleaned. Cleaning time: {cleaning_time} hours.")
         return cleaning_time
         
