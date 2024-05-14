@@ -1,126 +1,117 @@
 class Zoo:
     def __init__(self, zoo_name: str):
-        self._zoo_name: str = zoo_name
-        self._fences = []
-        self._zoo_keepers = []
+        self.zoo_name: str = zoo_name
+        self.fences = []
+        self.zoo_keepers = []
 
     def add_fence(self, fence):
-        self._fences.append(fence)
+        self.fences.append(fence)
 
     def add_animal(self, animal, fence):
-        if fence._area >= animal._area and animal._preferred_habitat == fence._name:
+        if fence.area >= animal.area and animal.preferred_habitat == fence.name:
             fence.add_animal(animal)
-            print(f"{animal._name} added to {fence._name}.")
+            print(f"{animal.name} added to {fence.name}.")
         else:
             print("Animal cannot be added to this fence.")
 
     def remove_animal(self, animal, fence):
-        if fence in self._fences:
+        if fence in self.fences:
             fence.remove_animal(animal)
-            print(f"{animal._name} removed from {fence._name}.")
+            print(f"{animal.name} removed from {fence.name}.")
         else:
             print("Animal or fence not found.")
 
     def add_zoo_keeper(self, zoo_keeper):
-        self._zoo_keepers.append(zoo_keeper)
+        self.zoo_keepers.append(zoo_keeper)
 
     def feed(self, animal):
-        for fence in self._fences:
+        for fence in self.fences:
             fence.feed_animals(animal)
 
     def clean(self) -> float:
         total_cleaning_time = 0.0
-        for fence in self._fences:
+        for fence in self.fences:
             total_cleaning_time += fence.clean()
         return total_cleaning_time
 
     def describe_zoo(self):
-        print(f"Zoo: {self._zoo_name}")
-        print("Zoo Keepers:")
-        for keeper in self._zoo_keepers:
-            print(f"- {keeper._name} {keeper._surname} (ID: {keeper._id})")
-        print("Fences:")
-        for fence in self._fences:
-            fence.describe_fence()
+        print("\n\nGuardians:")
+        for keeper in self.zoo_keepers:
+            print(f"\nZooKeeper(name={keeper.name}, surname={keeper.surname}, id={keeper.id})")
+        print("\nFences:")
+        for fence in self.fences:
+            print(f"\n{fence.name}(area={fence.area}, temperature={fence.temperature}, habitat={fence.habitat})", end="\n\n")
+            if fence.animals:
+                print("with animals:\n")
+                for animal in fence.animals:
+                    print(f"Animal(name={animal.name}, species={animal.specie}, age={animal.age})",end="\n\n")
+            print("#"*30)
+        print(end="\n\n")
 
 
 class Animal:
-    def __init__(self, name: str, specie: str, age: int, height: int, width: int, preferred_habitat: str):
-        self._name: str = name
-        self._specie: str = specie
-        self._age: int = age
-        self._height: int = height
-        self._width: int = width
-        self._preferred_habitat: str = preferred_habitat
-        self._health: float = round(100 * (1 / self._age), 3)
-        self._area: int = self._height * self._width
-        self._fence = Fence
+    def __init__(self, name: str, specie: str, age: int, height: int, width: int, preferred_habitat: str) -> None:
+        self.name: str = name
+        self.specie: str = specie
+        self.age: int = age
+        self.height: int = height
+        self.width: int = width
+        self.preferred_habitat: str = preferred_habitat
+        self.health: float = round(100 * (1 / self.age), 3)
+        self.area: int = self.height * self.width
 
 
 class Fence:
     def __init__(self, name: str, area: int, temperature: int, habitat: str):
-        self._name: str = name
-        self._area: int = area
-        self._temperature: int = temperature
-        self._habitat: str = habitat
-        self._animals_list: list = []
+        self.name: str = name
+        self.area: int = area
+        self.temperature: int = temperature
+        self.habitat: str = habitat
+        self.animals: list[Animal] = []
 
     def add_animal(self, animal: Animal):
-        if self._area > animal._area and animal._preferred_habitat == self._name:
-            self._animals_list.append(animal)
-            self._area -= animal._area 
+        if self.area > animal.area and animal.preferred_habitat == self.name:
+            self.animals.append(animal)
+            self.area -= animal.area 
         else: 
             print("Can't add animal. There isn't enough space!")
     
     def remove_animal(self, animal: Animal):
-        if animal in self._animals_list:
-            self._animals_list.remove(animal)
-            self._area += animal._area
+        if animal in self.animals:
+            self.animals.remove(animal)
+            self.area += animal.area
         else:
-            print("This animal in not in this fence.")
+            print("This animal is not in this fence.")
 
-    def feed_animals(self, animal : Animal):
-        for animal[Animal] in self._animals_list:
-            if self._area >= (animal._area * 1.04):
-                animal._health += (animal._health/100)*1
-                animal._area += (animal._area/100)*4
-                print(f"{animal._name} has been fed ")
+    def feed_animals(self, animal: Animal):
+        for animal in self.animals:
+            if self.area >= (animal.area * 1.04):
+                animal.health += (animal.health/100)*1
+                animal.area += (animal.area/100)*4
+                print(f"{animal.name} has been fed. ")
             else:
-                print(f"Not enough space in {self._name} to feed {animal._name}.")
+                print(f"Not enough space in {self.name} to feed {animal.name}.")
 
-    def clean(self, animal = Animal) -> float:
-        occ_area = sum(animal._area for animal[Animal] in self._animals_list)
-        if self._area > 0:
-            cleaning_time = occ_area / self._area
+    def clean(self) -> float:
+        occ_area = sum(animal.area for animal in self.animals)
+        if self.area > 0:
+            cleaning_time = occ_area / self.area
         else:
             cleaning_time = occ_area
-        print(f"{self._name} cleaned. Cleaning time: {cleaning_time} hours.")
+        print(f"{self.name} has been cleaned in {cleaning_time} hours.")
         return cleaning_time
-    
-    def describe_fence(self):
-        print(f"- {self._name}:")
-        print(f"  - Area: {self._area}")
-        print(f"  - Temperature: {self._temperature}")
-        print(f"  - Habitat: {self._habitat}")
-        if self._animals:
-            print("  - Animals:")
-            for animal in self._animals:
-                print(f"    - {animal._name} ({animal._species}), Age: {animal._age}, Health: {animal._health}")
-        else:
-            print("  - No animals in this fence.")
         
-
 class Zoo_Keeper:
     def __init__(self, name: str, surname: str, id: int):
-        self._name: str = name
-        self._surname: str = surname
-        self._id: int = id
+        self.name: str = name
+        self.surname: str = surname
+        self.id: int = id
 
    
 
 zoo = Zoo(zoo_name = "2M Zoo")
-fence1 = Fence(name = "Savannah", area = 1000, temperature = 40, habitat = "Grassland")
-fence2 = Fence(name = "Jungle", area = 1500, temperature = 28, habitat = "Rainforest")
+fence1 = Fence(name = "Savannah", area = 2000, temperature = 40, habitat = "Grassland")
+fence2 = Fence(name = "Jungle", area = 3000, temperature = 28, habitat = "Rainforest")
 zoo.add_fence(fence1)
 zoo.add_fence(fence2)
 keeper1 = Zoo_Keeper(name = "John", surname = "Doe", id = 1)
