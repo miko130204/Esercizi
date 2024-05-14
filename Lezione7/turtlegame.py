@@ -75,11 +75,11 @@ clock = 0
 
 while hare_position <= 70 and tortoise_position <= 70:
     hare_position += hare_move(weather)
-    if hare_position < 0:
-        hare_position = 0
+    if hare_position < 1:
+        hare_position = 1
     tortoise_position += tortoise_move(weather)
-    if tortoise_position < 0:
-        tortoise_position = 0
+    if tortoise_position < 1:
+        tortoise_position = 1
 
     print_race(hare_position, tortoise_position)
 
