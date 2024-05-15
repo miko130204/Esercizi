@@ -11,14 +11,17 @@ def print_race(hare_pos, tortoise_pos):
         else:
             print("_", end = " ")
 
-def tortoise_move(weather):
+def tortoise_move(weather, energy):
     move = random.randint(1, 10)
     if weather == "sunny":
         if move <= 5:
+            energy -= 5
             return 3
         elif move <= 7:
+            energy -= 10
             return -6
         else:
+            energy -= 3
             return 1
     elif weather == "rainy":
         if move <= 5:
@@ -28,7 +31,8 @@ def tortoise_move(weather):
         else:
             return 0
     
-def hare_move(weather):
+    
+def hare_move(weather, energy):
     move = random.randint(1, 10)
     if weather == "sunny":
         if move <= 2:
@@ -71,13 +75,15 @@ hare_position = 1
 tortoise_position = 1
 weather = "sunny"
 clock = 0
+hare_energy = 100
+tortoise_energy = 100
 
 
 while hare_position <= 70 and tortoise_position <= 70:
-    hare_position += hare_move(weather)
+    hare_position += hare_move(weather, hare_energy)
     if hare_position < 1:
         hare_position = 1
-    tortoise_position += tortoise_move(weather)
+    tortoise_position += tortoise_move(weather, tortoise_energy)
     if tortoise_position < 1:
         tortoise_position = 1
 
@@ -96,3 +102,12 @@ while hare_position <= 70 and tortoise_position <= 70:
     elif tortoise_position >= 70:
         print("\nTORTOISE WINS! || VAY!!!")
         break 
+    elif hare_energy <= 0 and tortoise_energy <= 0:
+        print("\nBOTH ANIMALS ARE EXHAUSTED. IT'S A TIE.")
+        break
+    elif hare_energy <= 0:
+        print("\nHARE IS EXHAUSTED. TORTOISE WINS! || VAY!!!")
+        break
+    elif tortoise_energy <= 0:
+        print("\nTORTOISE IS EXHAUSTED. HARE WINS || YUCH!!!")
+        break
