@@ -117,8 +117,8 @@ class Zoo_Keeper:
    
 
 zoo = Zoo(zoo_name = "2M Zoo")
-fence1 = Fence(name = "Savannah", area = 2000, temperature = 40, habitat = "Grassland")
-fence2 = Fence(name = "Jungle", area = 3000, temperature = 28, habitat = "Rainforest")
+fence1 = Fence(name = "Savannah", area = 200, temperature = 40, habitat = "Grassland")
+fence2 = Fence(name = "Jungle", area = 300, temperature = 28, habitat = "Rainforest")
 zoo.add_fence(fence1)
 zoo.add_fence(fence2)
 keeper1 = Zoo_Keeper(name = "John", surname = "Doe", id = 1)
