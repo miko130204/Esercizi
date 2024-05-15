@@ -1,3 +1,7 @@
+# For this project I thought of inserting all the functions into the "Fence" class instead of inserting them in the "Zoo_Keeper" class, 
+# because I found it more convenient. 
+# The program works and performs all required functions.
+
 class Zoo:
     def __init__(self, zoo_name: str):
         self.zoo_name: str = zoo_name
@@ -8,11 +12,14 @@ class Zoo:
         self.fences.append(fence)
 
     def add_animal(self, animal, fence):
-        if fence.area >= animal.area and animal.preferred_habitat == fence.name:
-            fence.add_animal(animal)
-            print(f"{animal.name} added to {fence.name}.")
+        if fence.area >= animal.area:
+            if animal.preferred_habitat == fence.name:
+                fence.add_animal(animal)
+                print(f"{animal.name} added to {fence.name}.")
+            else: 
+                 print(f"There's enough space for {animal.name} but the habitat is wrong. ")
         else:
-            print("Animal cannot be added to this fence.")
+            print(f"{animal.name} cannot be added to {fence.name} because there's no space and the habitat is wrong. ")
 
     def remove_animal(self, animal, fence):
         if fence in self.fences:
@@ -118,10 +125,14 @@ keeper1 = Zoo_Keeper(name = "John", surname = "Doe", id = 1)
 keeper2 = Zoo_Keeper(name = "Jane", surname = "Smith", id = 2)
 zoo.add_zoo_keeper(keeper1)
 zoo.add_zoo_keeper(keeper2)
-lion = Animal(name = "Simba", specie = "Lion", age = 5, height = 2, width = 2, preferred_habitat = "Savannah")
-elephant = Animal(name = "Dumbo", specie = "Elephant", age = 8, height = 4, width = 3, preferred_habitat = "Jungle")
-zoo.add_animal(lion, fence1)
-zoo.add_animal(elephant, fence2)
-zoo.feed(lion)
+animal1 = Animal(name = "Simba", specie = "Lion", age = 5, height = 2, width = 2, preferred_habitat = "Savannah")
+animal2 = Animal(name = "Dumbo", specie = "Elephant", age = 8, height = 4, width = 3, preferred_habitat = "Jungle")
+zoo.add_animal(animal1, fence1)
+zoo.add_animal(animal2, fence2)
+zoo.add_animal(animal1, fence2)
+zoo.add_animal(animal2, fence1)
+animal3 = Animal(name = "Smaug", specie = "Dragon", age = 5000, height = 400, width = 300, preferred_habitat = "Savannah")
+zoo.add_animal(animal3, fence1)
+zoo.feed(animal1)
 zoo.clean()
 zoo.describe_zoo()
