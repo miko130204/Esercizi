@@ -39,7 +39,6 @@ lst = [2, 5, 8, 10]
 
 4#
 
-
 def function4(number: int) -> dict:
     n_dict: dict = {}
 
@@ -48,6 +47,29 @@ def function4(number: int) -> dict:
     return n_dict
 
 number = 8
-print(function4(number))
+#print(function4(number))
 
  
+#5
+
+def function5(text: str) -> str:
+    words = text.split(',')
+    sorted_words = sorted(words)
+    sorted_text = ','.join(sorted_words)
+    return sorted_text
+
+
+text = "without,hello,bag,world"
+#print(function5(text))
+
+
+#6
+
+def function6(sentence: str) -> str:
+    words = sentence.split(' ')
+    cap_words = [word.upper() for word in words]
+    cap_sentence = ' '.join(cap_words)
+    return cap_sentence
+
+sentence = "Practice makes perfect"
+#print(function6(sentence))
