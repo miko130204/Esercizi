@@ -159,9 +159,28 @@ class Admin(User):
 privileges_list = ["can add post", "can delete post", "can ban user", "can unban user"]
 admin1 = Admin("Rick", "Astley", "RickRolled@gmail.com", privileges_list)
 
-admin1.describe_user()
-admin1.show_privileges()
+#admin1.describe_user()
+#admin1.show_privileges()
 
 
 # 9-8
 
+#Write a separate Privileges class. The class should have one attribute, privileges, that stores a list of strings as described 
+#in Exercise 9-7. Move the show_privileges() method to this class. Make a Privileges instance as an attribute in the Admin class. 
+#Create a new instance of Admin and use your method to show its privileges.
+
+class Privileges(Admin):
+    def __init__(self, privileges: list):
+        self.privileges = privileges
+
+    def show_privileges(self):
+        print(f"Admin privileges:\n","\n".join(self.privileges))
+
+privileges_list = ["can add post", "can delete post", "can ban user", "can unban user"]
+
+admin1 = Admin("Rick", "Astley", "RickRolled@gmail.com", privileges_list)
+
+
+admin1.describe_user()
+admin1.greet_user()
+admin1.privileges.show_privileges()
