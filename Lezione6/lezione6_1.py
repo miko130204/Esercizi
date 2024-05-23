@@ -31,25 +31,23 @@ restaurant3: Restaurant = Restaurant("Daje Roma", "Roman")
 # 9-3
 
 class User:
-    def __init__(self, first_name: str, last_name: str, email: str, age: int):
+    def __init__(self, first_name: str, last_name: str, email: str):
         self.first_name: str = first_name
         self.last_name: str = last_name
         self.email: str = email
-        self.age: int = age
 
     def describe_user(self):
         print(f"Name: {self.first_name}")
         print(f"Surname: {self.last_name}")
-        print(f"Email: {self.email}")
-        print(f"Age: {self.age}\n")
+        print(f"Email: {self.email}\n")
     
     def greet_user(self):
         print(f"Hello {self.first_name}, how are you?")
     
 
-user1: User = User("Albert", "Einstein", "AlbertEin@gmail.com", 70)
-user2: User = User("Marc", "Marquez", "Marquez93@gmail.com", 28)
-user3: User = User("Valentino", "Rossi", "Rossi46@gmail.com", 40)
+user1: User = User("Albert", "Einstein", "AlbertEin@gmail.com")
+user2: User = User("Marc", "Marquez", "Marquez93@gmail.com")
+user3: User = User("Valentino", "Rossi", "Rossi46@gmail.com")
 
 #user1.describe_user()
 #user1.greet_user()
@@ -98,18 +96,16 @@ restaurant.increment_number_served(25)
 # 9-5
 
 class User:
-    def __init__(self, first_name: str, last_name: str, email: str, age: int):
+    def __init__(self, first_name: str, last_name: str, email: str):
         self.first_name: str = first_name
         self.last_name: str = last_name
         self.email: str = email
-        self.age: int = age
         self.login_attempts: int = 0
 
     def describe_user(self):
         print(f"Name: {self.first_name}")
         print(f"Surname: {self.last_name}")
-        print(f"Email: {self.email}")
-        print(f"Age: {self.age}\n")
+        print(f"Email: {self.email}\n")
     
     def greet_user(self):
         print(f"Hello {self.first_name}, how are you?")
@@ -143,12 +139,29 @@ class IceCreamStand(Restaurant):
         print(f"The flavours are: {self.flavours}")
 
 flavours_list: list = ["Lemon", "Nutella", "Vanilla", "Strawberry", "Mango"]
-restaurant1 = IceCreamStand("Ping Pong", "Ice cream", flavours_list)
+stand1 = IceCreamStand("Ping Pong", "Ice cream", flavours_list)
 
-restaurant1.describe_restaurant()
-restaurant1.open_restaurant()
-restaurant1.print_flavours()
+#stand1.describe_restaurant()
+#stand1.open_restaurant()
+#stand1.print_flavours()
 
 
 # 9-7
+
+class Admin(User):
+    def __init__(self, first_name: str, last_name: str, email: str, privileges: list):
+        User.__init__(self, first_name, last_name, email)
+        self.privileges: list = privileges
+
+    def show_privileges(self):
+        print(f"Admin privileges:\n","\n".join(self.privileges))
+
+privileges_list = ["can add post", "can delete post", "can ban user", "can unban user"]
+admin1 = Admin("Rick", "Astley", "RickRolled@gmail.com", privileges_list)
+
+admin1.describe_user()
+admin1.show_privileges()
+
+
+# 9-8
 
