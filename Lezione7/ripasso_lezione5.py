@@ -49,7 +49,7 @@ def function4(number: int) -> dict:
 number = 8
 #print(function4(number))
 
- 
+
 #5
 
 def function5(text: str) -> str:
