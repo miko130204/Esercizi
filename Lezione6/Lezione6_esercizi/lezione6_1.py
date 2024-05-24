@@ -206,13 +206,52 @@ admin1 = Admin("Rick", "Astley", "RickRolled@gmail.com", privileges_list)
 
 # 9-13
 
-#Make a class Die with one attribute called sides, which has a default value of 6. Write a method called roll_die() that prints 
-#a random number between 1 and the number of sides the die has. Make a 6-sided die and roll it 10 times. Make a 10-sided die and 
-#a 20-sided die. Roll each die 10 times.
+import random
 
 class Die:
-    def __init__(self):
-        1 
+    def __init__(self, sides=6):
+        self.sides = sides
+
+    def roll_die(self):
+        return random.randint(1, self.sides)
+
+
+die_6 = Die(6)
+print("Rolling a 6-sided die 10 times:")
+for _ in range(10):
+    print(die_6.roll_die(), end=' ')
+print("\n")
+
+die_10 = Die(10)
+print("Rolling a 10-sided die 10 times:")
+for _ in range(10):
+    print(die_10.roll_die(), end=' ')
+print("\n")
+
+die_20 = Die(20)
+print("Rolling a 20-sided die 10 times:")
+for _ in range(10):
+    print(die_20.roll_die(), end=' ')
+print("\n")
+
+
+
+#9-14. Lottery: Make a list or tuple containing a series of 10 numbers and 5 letters. Randomly select 4 numbers or letters from 
+#the list and print a message saying that any ticket matching these 4 numbers or letters wins a prize.
+
+
+
+
+
+
+#9-15. Lottery Analysis: You can use a loop to see how hard it might be to win the kind of lottery you just modeled. Make a list 
+#or tuple called my_ticket. Write a loop that keeps pulling numbers until your ticket wins. Print a message reporting how many times 
+#the loop had to run to give you a winning ticket.
+
+
+
+
+        
 
 
 
