@@ -1,3 +1,5 @@
+#1
+
 class Film:
     def __init__(self, title: str, duration: int):
         self.title: str = title
@@ -49,39 +51,37 @@ print(cinema1.book_film("Avengers", 35))
 print(f"Seats left in room 1: {room1.seats_left()}")
 
 
-#Scrivi un programma in Python che gestisca un magazzino. Il programma deve permettere di aggiungere prodotti al magazzino, cercare prodotti per nome e verificare la disponibilità di un prodotto.
 
-#Definisci una classe Prodotto con i seguenti attributi:
-#- nome (stringa)
-#- quantità (intero)
- 
-#Definisci una classe Magazzino con i seguenti metodi:
-#- aggiungi_prodotto(prodotto: Prodotto): aggiunge un prodotto al magazzino.
-#- cerca_prodotto(nome: str) -> Prodotto: cerca un prodotto per nome e lo ritorna se esiste.
-#- verifica_disponibilità(nome: str) -> str: verifica se un prodotto è disponibile in magazzino.
+#2
 
 class Product:
-    def __init__(self, name: str, qt: int):
-        1
-
+    def __init__(self, name: str, quantity: int):
+        self.name: str = name
+        self.quantity: int = quantity
 
 class Stock:
     def __init__(self):
-        self.stock: list = []
+        self.products: list[Product] = []
 
-    def add_producut(self, product: Product):
-        self.stock.append(product)
+    def add_product(self, product: Product):
+        self.products.append(product)
+        return f"{product} successfully added."
 
-    def search_product(self, name: str):
-        name = Product.__name__
-        if name in self.stock:
-            print(f"The product exists")
+    def find_product(self, name: str) -> Product:
+        for product in self.products:
+            if product.name == name:
+                return product
+
+    def availability(self, name: str) -> str:
+        product = self.find_product(name)
+        if product:
+            return f"{name} is available. {product.quantity} left."
         else:
-            print(f"The product doesn't exists")
+            return f"{name} is not available."
+        
 
-    def availability(self, name: str):
-        name = Product.__name__
-        if name in self.stock:
-            print(f"{name} is available")
-        else:
-            print(f"{name} isn't available")
+stock = Stock()
+product1: Product = Product("Iphone", 2000)
+print(stock.add_product(product1))
+print(stock.availability(product1.name))
+        
