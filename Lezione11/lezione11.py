@@ -43,12 +43,12 @@ film1 = Film("Godzilla", 130)
 film2 = Film("Avengers", 180)
 room1 = Room(1, film1, 50)
 room2 = Room(2, film2, 30)
-print(cinema1.add_room(room1))
-print(cinema1.add_room(room2))
+#print(cinema1.add_room(room1))
+#print(cinema1.add_room(room2))
 
-print(cinema1.book_film("Godzilla", 30))
-print(cinema1.book_film("Avengers", 35))
-print(f"Seats left in room 1: {room1.seats_left()}")
+#print(cinema1.book_film("Godzilla", 30))
+#print(cinema1.book_film("Avengers", 35))
+#print(f"Seats left in room 1: {room1.seats_left()}")
 
 
 
@@ -81,7 +81,7 @@ class Stock:
         
 
 stock = Stock()
-product1: Product = Product("Iphone", 2000)
+product1 = Product("Iphone", 2000)
 print(stock.add_product(product1))
 print(stock.availability(product1.name))
         
