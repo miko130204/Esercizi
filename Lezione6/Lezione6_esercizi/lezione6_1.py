@@ -209,7 +209,7 @@ admin1 = Admin("Rick", "Astley", "RickRolled@gmail.com", privileges_list)
 import random
 
 class Die:
-    def __init__(self, sides=6):
+    def __init__(self, sides = 6):
         self.sides = sides
 
     def roll_die(self):
@@ -236,19 +236,74 @@ print("\n")
 
 
 
-#9-14. Lottery: Make a list or tuple containing a series of 10 numbers and 5 letters. Randomly select 4 numbers or letters from 
-#the list and print a message saying that any ticket matching these 4 numbers or letters wins a prize.
+# 9-14
+
+import random
+
+class Lottery:
+    def __init__(self):
+        self.ticket = self.generate_ticket()
+
+    def generate_ticket(self):
+        numbers = list(range(1, 11))
+        letters = ['A', 'B', 'C', 'D', 'E']
+        ticket = numbers + letters
+        return ticket
+
+    def draw_numbers(self):
+        return random.sample(self.ticket, 4)
+
+    def check_ticket(self, draw):
+        matching = set(draw) & set(self.ticket)
+        if len(matching) >= 4:
+            print("Congratulations! You've won a prize with the following combination:", draw)
+        else:
+            print("Sorry, you didn't win this time. Better luck next time!")
 
 
+lottery = Lottery()
+draw = lottery.draw_numbers()
+lottery.check_ticket(draw)
+
+        
+# 9-15
+
+import random
+
+class Lottery:
+    def __init__(self):
+        self.ticket = self.generate_ticket()
+
+    def generate_ticket(self):
+        numbers = list(range(1, 11))
+        letters = ['A', 'B', 'C', 'D', 'E']
+        ticket = numbers + letters
+        return ticket
+
+    def draw_numbers(self):
+        return random.sample(self.ticket, 4)
+
+    def check_ticket(self, draw):
+        matching = set(draw) & set(self.ticket)
+        if len(matching) >= 4:
+            print("Congratulations! You've won a prize with the following combination:", draw)
+            return True
+        else:
+            print("Sorry, you didn't win this time. Better luck next time!")
+            return False
 
 
+lottery = Lottery()
+my_ticket = lottery.generate_ticket()
+tries = 0
+won = False
 
+while not won:
+    draw = lottery.draw_numbers()
+    won = lottery.check_ticket(draw)
+    tries += 1
 
-#9-15. Lottery Analysis: You can use a loop to see how hard it might be to win the kind of lottery you just modeled. Make a list 
-#or tuple called my_ticket. Write a loop that keeps pulling numbers until your ticket wins. Print a message reporting how many times 
-#the loop had to run to give you a winning ticket.
-
-
+print(f"It took {tries} tries to win the lottery")
 
 
         
