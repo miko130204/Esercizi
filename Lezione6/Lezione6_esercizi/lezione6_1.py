@@ -81,7 +81,7 @@ class Restaurant:
         self.number_served += y
 
 
-restaurant = Restaurant("La Dolce Vita", "Italian")
+restaurant = Restaurant("Sushiko", "Japanese")
 
 restaurant.number_served = 5
 #print(f"Number of customers served: {restaurant.number_served}")
@@ -165,12 +165,22 @@ admin1 = Admin("Rick", "Astley", "RickRolled@gmail.com", privileges_list)
 
 # 9-8
 
-class Privileges(Admin):
+class Privileges:
     def __init__(self, privileges: list):
         self.privileges = privileges
 
     def show_privileges(self):
-        print(f"Admin privileges:\n","\n".join(self.privileges))
+        print("Admin privileges:")
+        for privilege in self.privileges:
+            print(f"- {privilege}")
+
+class Admin(User):
+    def __init__(self, first_name: str, last_name: str, email: str, privileges: list):
+        super().__init__(first_name, last_name, email)
+        self.privileges = Privileges(privileges)
+
+    def show_privileges(self):
+        self.privileges.show_privileges()
 
 privileges_list = ["can add post", "can delete post", "can ban user", "can unban user"]
 
@@ -179,7 +189,25 @@ admin1 = Admin("Rick", "Astley", "RickRolled@gmail.com", privileges_list)
 
 #admin1.describe_user()
 #admin1.greet_user()
-#admin1.privileges.show_privileges()
+#admin1.show_privileges()
 
 
 # 9-9
+
+# Use the final version of electric_car.py from this section. Add a method to the Battery class called upgrade_battery(). 
+#This method should check the battery size and set the capacity to 65 if it isn’t already. Make an electric car with a default 
+#battery size, call get_range() once, and then call get_range() a second time after upgrading the battery. You should see an 
+#increase in the car’s range.
+
+
+
+# 9-10, 9-11 and 9-12 are on the file test.py
+
+
+# 9-13
+
+
+
+
+
+
