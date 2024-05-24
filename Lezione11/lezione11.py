@@ -65,7 +65,7 @@ class Stock:
 
     def add_product(self, product: Product):
         self.products.append(product)
-        return f"{product} successfully added."
+        return f"{product.name} successfully added."
 
     def find_product(self, name: str) -> Product:
         for product in self.products:
