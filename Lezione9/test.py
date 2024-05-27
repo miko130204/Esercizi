@@ -1,4 +1,66 @@
-# 6
+# 1
+
+def word_break(s: str, wordDict: list[str]) -> bool:
+    word_set = set(wordDict)
+    dp = [False] * (len(s) + 1)
+    dp[0] = True
+    
+    for i in range(1, len(s) + 1):
+        for word in word_set:
+            if dp[i - len(word)] and s[i - len(word):i] == word:
+                dp[i] = True
+                break
+    return dp[-1]
+
+
+# 2
+
+def valid_sudoku(board: list[list[str]]) -> bool:
+    def is_valid_unit(unit):
+        unit = [i for i in unit if i != '.']
+        return len(unit) == len(set(unit))
+    
+    def is_valid_row(board):
+        for row in board:
+            if not is_valid_unit(row):
+                return False
+        return True
+        
+    def is_valid_col(board):
+        for col in zip(*board):
+            if not is_valid_unit(col):
+                return False
+        return True
+            
+    def is_valid_square(board):
+        for i in range(0, 9, 3):
+            for j in range(0, 9, 3):
+                square = [board[x][y] for x in range(i, i + 3) for y in range(j, j+3)]
+                if not is_valid_unit(square):
+                    return False
+        return True
+    
+    return is_valid_row(board) and is_valid_col(board) and is_valid_square(board)
+        
+
+# 3
+
+
+# 4
+
+def anagram(s: str, t: str) -> bool:
+    s = s.lower()
+    t = t.lower()
+    
+    sorted_s = sorted(s)
+    sorted_t = sorted(t)
+    if sorted_s == sorted_t:
+        return True
+    else:
+        return False
+
+
+# 5
 
 class Book:
     def __init__(self, book_id: str, title: str, author: str, is_borrowed: bool = False):
@@ -82,9 +144,40 @@ class Library:
         
         member = self.members[member_id]
         return [book.title for book in member.borrowed_books]
-    
 
-# 8
+
+# 6
+
+class TreeNode:
+    
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        
+def symmetric(tree: list[int]) -> bool:
+    def is_mirror(node1, node2):
+        if node1 is None and node2 is None:
+            return True
+        if node1 is None or node2 is None:
+            return False
+        return (node1.val == node2.val) and is_mirror(node1.left, node2.right) and is_mirror(node1.right, node2.left)
+
+    def build_tree(index):
+        if index >= len(tree):
+            return None
+        node = TreeNode(tree[index])
+        node.left = build_tree(2 * index + 1)
+        node.right = build_tree(2 * index + 2)
+        return node
+
+    if not tree:
+        return True
+    root = build_tree(0)
+    return is_mirror(root.left, root.right)
+
+
+# 7
 
 class Account:
     def __init__(self, account_id: str):
