@@ -82,6 +82,6 @@ class Stock:
 
 stock = Stock()
 product1 = Product("Iphone", 2000)
-print(stock.add_product(product1))
-print(stock.availability(product1.name))
+#print(stock.add_product(product1))
+#print(stock.availability(product1.name))
         
