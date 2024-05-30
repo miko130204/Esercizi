@@ -45,6 +45,28 @@ def valid_sudoku(board: list[list[str]]) -> bool:
 
 # 3
 
+class ListNode:
+    def __init__(self, val = 0, next = None):
+        self.val = val
+        self.next = next
+
+def reverse_list(head: ListNode) -> list[int]:
+    previous = None
+    current = head
+    
+    while current:
+        next_node = current.next
+        current.next = previous
+        previous = current
+        current = next_node
+    
+    reversed_list: list = []
+    while previous:
+        reversed_list.append(previous.val)
+        previous = previous.next
+    
+    return reversed_list
+
 
 # 4
 
