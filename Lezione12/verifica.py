@@ -87,4 +87,39 @@ class Moto(Veicolo):
 
 # 4
 
+class Specie:
+    def __init__(self, nome: str, popolazione_iniziale: int, tasso_crescita: float): 
+        self.nome: str = nome
+        self.popolazione: int = popolazione_iniziale
+        self.tasso_crescita: float = tasso_crescita
+
+    def cresci(self):
+        self.popolazione = int(self.popolazione * (1 + self.tasso_crescita/100))
+
+    def anni_per_superare(self, altra_specie: 'Specie') -> int:
+        anni = 0
+        while self.popolazione <= altra_specie.popolazione and anni < 1000:
+            self.cresci()
+            altra_specie.cresci()
+            anni += 1
+        return anni
+
+    def getDensita(self, area_kmq: float) -> int:
+        densita = self.popolazione / area_kmq
+        anni = 0
+        while densita < 1 and anni < 1000:
+            self.cresci()
+            densita = self.popolazione / area_kmq
+            anni += 1
+        return anni
+
+
+class BufaloKlingon(Specie):
+    def __init__(self, popolazione_iniziale: int, tasso_crescita: float):
+        super().__init__("Bufalo Klingon", popolazione_iniziale, tasso_crescita)
+
+
+class Elefante(Specie):
+    def __init__(self, popolazione_iniziale: int, tasso_crescita: float):
+        super().__init__("Elefante", popolazione_iniziale, tasso_crescita)
         
