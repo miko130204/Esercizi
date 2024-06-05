@@ -25,5 +25,6 @@ class TestAnagram(unittest.TestCase):
         self.output_file('output.txt', result)
         self.assertEqual(result, True)
 
+
 if __name__ == '__main__':
     unittest.main()
