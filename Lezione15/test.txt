@@ -1,4 +1,0 @@
-anagram("anagram","nagaram")
-anagram("rat", "car")
-anagram("silent","listen")
-anagram("NeurIPS","UniReps")
