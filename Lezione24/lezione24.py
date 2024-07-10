@@ -11,8 +11,7 @@ class Documento:
     def isInText(self, keyword: str):
         if keyword in self.testo:
             return True
-        else:
-            return False
+        
     
 class Email(Documento):
     def __init__(self, testo: str, mittente: str, destinatario: str, titolo: str):
