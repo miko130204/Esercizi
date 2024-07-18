@@ -75,7 +75,7 @@ class CifratoreACombinazione(CodificatoreMessaggio, DecodificatoreMessaggio):
         with open(percorso, 'w') as file:
             file.write(testo)
 
-# Test del Cifratore a Scorrimento
+#Test del Cifratore a Scorrimento
 cifratore_scorrimento = CifratoreAScorrimento(3)
 testo_in_chiaro = cifratore_scorrimento.leggi_da_file('testo_in_chiaro.txt')
 testo_codificato = cifratore_scorrimento.codifica(testo_in_chiaro)
@@ -84,7 +84,7 @@ print(f'Testo codificato (scorrimento): {testo_codificato}')
 testo_decodificato = cifratore_scorrimento.decodifica(testo_codificato)
 print(f'Testo decodificato (scorrimento): {testo_decodificato}')
 
-# Test del Cifratore a Combinazione
+#Test del Cifratore a Combinazione
 cifratore_combinazione = CifratoreACombinazione(3)
 testo_in_chiaro = cifratore_combinazione.leggi_da_file('testo_in_chiaro.txt')
 testo_codificato = cifratore_combinazione.codifica(testo_in_chiaro)
