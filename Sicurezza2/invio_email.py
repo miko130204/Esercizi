@@ -27,8 +27,8 @@ def send_email(sender_email, receiver_email, subject, body, password):
         print(f"Failed to send email. Error: {e}")
 
 # Example usage
-sender_email = "your-email@gmail.com"
-receiver_email = "recipient-email@example.com"
+sender_email = "miko.business77@gmail.com"
+receiver_email = "francorcr@hotmail.com"
 subject = "Test Email"
 body = "This is a test email sent from Python."
 password = "your-app-specific-password"
