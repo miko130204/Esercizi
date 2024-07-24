@@ -1,61 +1,87 @@
 class Book:
     def __init__(self, book_id: str, title: str, author: str):
-        self.book_id: str = book_id
-        self.title: str = title
-        self.author: str = author
-        self.is_borrowed: bool = False
+        self.book_id = book_id
+        self.title = title
+        self.author = author
+        self.is_borrowed = False
 
-    def borrow_book(self):
+    def borrow(self):
         if not self.is_borrowed:
             self.is_borrowed = True
         else:
-            return "Book is already borrowed"
+            raise ValueError("Book is already borrowed")
 
     def return_book(self):
         if self.is_borrowed:
             self.is_borrowed = False
         else:
-            return "Book was not borrowed"
-        
+            raise ValueError("Book was not borrowed")
+
+
+class Member:
+    def __init__(self, member_id: str, name: str):
+        self.member_id = member_id
+        self.name = name
+        self.borrowed_books = []
+
+    def borrow_book(self, book: Book):
+        if not book.is_borrowed:
+            book.borrow()
+            self.borrowed_books.append(book)
+        else:
+            raise ValueError("Book is already borrowed")
+
+    def return_book(self, book: Book):
+        if book in self.borrowed_books:
+            book.return_book()
+            self.borrowed_books.remove(book)
+        else:
+            raise ValueError("Book not borrowed by this member")
+
 
 class Library:
     def __init__(self):
-        self.books: dict[str, Book] = {}
+        self.books = {}
+        self.members = {}
 
-    def add_book(self, book: Book):
-        if book.book_id not in self.books:
-            self.books[book.book_id] = Book(book.book_id, book.title, book.author)
-            return "Book has been added"
-        else:
-            return "Book with this ID already exists"
-
-    def borrow_book(self, book_id: str):
+    def add_book(self, book_id: str, title: str, author: str):
         if book_id not in self.books:
-            return "Book not found"
+            self.books[book_id] = Book(book_id, title, author)
         else:
-            book = self.books[book_id]
-            book.borrow_book()
-            return "The book has been borrowed"
+            raise ValueError("Book with this ID already exists")
 
-    def return_book(self, book_id: str):
+    def register_member(self, member_id: str, name: str):
+        if member_id not in self.members:
+            self.members[member_id] = Member(member_id, name)
+        else:
+            raise ValueError("Member with this ID already exists")
+
+    def borrow_book(self, member_id: str, book_id: str):
+        if member_id not in self.members:
+            raise ValueError("Member not found")
         if book_id not in self.books:
-            return "Book not found"
+            raise ValueError("Book not found")
+
+        member = self.members[member_id]
+        book = self.books[book_id]
+        member.borrow_book(book)
+
+    def return_book(self, member_id: str, book_id: str):
+        if member_id not in self.members:
+            raise ValueError("Member not found")
+        if book_id not in self.books:
+            raise ValueError("Book not found")
+
+        member = self.members[member_id]
+        book = self.books[book_id]
+        member.return_book(book)
+
+    def get_borrowed_books(self, member_id: str):
+        if member_id in self.members:
+            member = self.members[member_id]
+            return [book.title for book in member.borrowed_books]
         else:
-            book = self.books[book_id]
-            book.return_book()
-            return "The book has been returned"
-
-    def get_not_borrowed_books(self):
-        not_borrowed_books = [book.title for book in self.books.values() if not book.is_borrowed]
-        return not_borrowed_books
-    
-library1 = Library()
-book1: Book = Book("1", "Berserk", "Author")
-#print(library1.add_book(book1))
-#print(library1.borrow_book(book1.book_id))
-#print(library1.return_book(book1.book_id))
-#print(library1.get_not_borrowed_books())
-
+            raise ValueError("Member not found")
 
 
 # 2

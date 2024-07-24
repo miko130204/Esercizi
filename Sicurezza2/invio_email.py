@@ -31,6 +31,6 @@ sender_email = "miko.business77@gmail.com"
 receiver_email = "francorcr@hotmail.it"
 subject = "Test Email"
 body = "This is a test email sent from Python."
-password = "your-app-specific-password"
+password = "lmxirrzzhpqlyqay"
 
 send_email(sender_email, receiver_email, subject, body, password)
